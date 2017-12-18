@@ -1,0 +1,24 @@
+[site]
+http://www.service-repository.com/
+http://www.service-repository.com/service/overview/877027757
+
+[targetnamespace]
+http://www.parasoft.com/wsdl/calculator/
+
+[endpoint]
+http://ws1.parasoft.com/glue/calculator
+
+/_system/governance/trunk/endpoints/com/parasoft/ws1/glue/ep-calculator
+
+[wsdl]
+/_system/governance/trunk/wsdls/com/parasoft/www/wsdl/calculator/calculator.wsdl
+
+[url wsdl]
+http://soaptest.parasoft.com/calculator.wsdl
+
+
+[operation]
++add
++divide
++multiply
++subtract
