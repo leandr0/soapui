@@ -1,338 +1,336 @@
-  claim_declaration:
-    type: object
-    required:
-      - UserPersonalInformation
-      - photoUrls
-    properties:
-      claim_declaration_request:
-        $ref: '#/definitions/claim_declaration_request'
-    xml:
-      name: claim_declaration_request
-  claim_declaration_request:
-    type: object
-    required:
-      - UserPersonalInformation
-      - UserAddress
-    properties:
-      UserPersonalInformation:
-        $ref: '#/definitions/UserPersonalInformation'
-      UserAddress:
-        $ref: '#/definitions/UserAddress'
-      UserContactType:
-        $ref: '#/definitions/UserContactType'
-      InsuredInfo:
-        $ref: '#/definitions/InsuredInfo'
-      ClaimInfo:
-        $ref: '#/definitions/ClaimInfo'
-    xml:
-      name: claim_declaration_request
-  UserPersonalInformation:
-    type: object
-    required:
-      - userFullName
-      - userFirstName
-      - userMiddleName
-      - userLastName
-      - userSurname
-      - userBirthDate
-      - userNationalityCountry
-      - userNationalityOrigin
-      - userGenderId
-      - userDocumentType
-      - userDocumentNumber
-    properties:
-      userFullName:
-        type: string
-      userFirstName:
-        type: string
-      userMiddleName:
-        type: string
-      userLastName:
-        type: string
-      userSurname:
-        type: string
-      userBirthDate:
-        type: string
-      userNationalityCountry:
-        type: string
-      userNationalityOrigin:
-        type: string
-      userGenderId:
-        type: string
-      userDocumentType:
-        type: string
-      userDocumentNumber:
-        type: string
-    xml:
-      name: UserPersonalInformation
-  UserAddress:
-    type: object
-    required:
-      - userAddressType
-      - userAddressName
-      - userAddressNumber
-      - userAddressCity
-      - userAddressDistrict
-      - userAddressState
-      - userAddressCountry
-      - userAddressResidence
-      - userAddressReference
-      - userAdressPostalCode
-    properties:
-      userAddressType:
-        type: string
-      userAddressName:
-        type: string
-      userAddressNumber:
-        type: string
-      userAddressCity:
-        type: string
-      userAddressDistrict:
-        type: string
-      userAddressState:
-        type: string
-      userAddressCountry:
-        type: string
-      userAddressResidence:
-        type: string
-      userAddressReference:
-        type: string
-      userAdressPostalCode:
-        type: string
-    xml:
-      name: UserAddress
-  UserContactType:
-    type: object
-    required:
-      - contactType
-      - emailType
-      - email
-      - phoneType
-      - countryCode
-      - areaCode
-      - phoneNumber
-    properties:
-      contactType:
-        type: string
-      emailType:
-        type: string
-      email:
-        type: string
-      phoneType:
-        type: string
-      countryCode:
-        type: integer
-        format: int64
-      areaCode:
-        type: integer
-        format: int64
-      phoneNumber:
-        type: string
-    xml:
-      name: UserContactType
-  InsuredInfo:
-    type: object
-    required:
-      - fullName
-      - firstName
-      - middleName
-      - lastName
-      - surname
-      - documentType
-      - documentNumber
-    properties:
-      fullName:
-        type: string
-      firstName:
-        type: string
-      middleName:
-        type: string
-      lastName:
-        type: string
-      surname:
-        type: string
-      documentType:
-        type: string
-      documentNumber:
-        type: string
-    xml:
-      name: InsuredInfo
-  claimsOccurrenceDate:
-    type: object
-    required:
-      - claimOccurrenceDate
-      - currentDate
-      - claimRole
-    properties:
-      claimOccurrenceDate:
-        type: string
-      currentDate:
-        type: string
-      claimRole:
-        type: string
-    xml:
-      name: claimsOccurrenceDate
-  Policy:
-    type: object
-    required:
-      - policyId
-      - policyNumber
-      - startDateValidity
-      - operationNumber
-      - productCode
-      - planCode
-      - coverageCode
-    properties:
-      policyId:
-        type: string
-      policyNumber:
-        type: string
-      startDateValidity:
-        type: string
-      operationNumber:
-        type: string
-      productCode:
-        type: string
-      planCode:
-        type: string
-      coverageCode:
-        type: string
-    xml:
-      name: Policy
-  Coverage:
-    type: object
-    required:
-      - coverageId
-    properties:
-      coverageId:
-        type: string
-    xml:
-      name: Coverage
-  Document:
-    type: object
-    required:
-      - coverageDocId
-      - coverageDocType
-      - coverageDocDesc
-      - coverageDocIsNew
-      - coverageDocIsReusable
-      - coverageList
-    properties:
-      coverageDocId:
-        type: string
-      coverageDocType:
-        type: string
-      coverageDocDesc:
-        type: string
-      coverageDocIsNew:
-        type: string
-      coverageDocIsReusable:
-        type: string
-      coverages:
-        type: array
-        items:
-          $ref: '#/definitions/Coverage'
-    xml:
-      name: Document
-  Question:
-    type: object
-    required:
-      - coverageQuestionId
-      - coverageAnswerId
-      - coverageAnswerText
-      - coverages
-    properties:
-      coverageQuestionId:
-        type: string
-      coverageAnswerId:
-        type: string
-      coverageAnswerText:
-        type: string
-      coverages:
-        type: array
-        items:
-          $ref: '#/definitions/Coverage'
-    xml:
-      name: Question
-  Claim:
-    type: object
-    required:
-      - claimId
-      - claimStatus
-    properties:
-      claimId:
-        type: string
-      claimStatus:
-        type: string
-    xml:
-      name: Claim 
-  ClaimInfo:
-    type: object
-    required:
-      - fullName
-      - firstName
-      - middleName
-      - lastName
-      - surname
-      - documentType
-      - documentNumber
-    properties:
-      claimOccurrenceDate:
-        type: string
-      claimDeclarationDate:
-        type: string
-      claimAlert:
-        type: string
-      answerDays:
-        type: string
-      claimRole:
-        type: string
-      coverageId:
-        type: string
-      claimType:
-        type: string
-      typeCause:
-        type: string
-      partnerId:
-        type: string
-      claimsOccurrenceDates:
-        type: array
-        items:
-          $ref: '#/definitions/claimsOccurrenceDate'
-      policies:
-        type: array
-        items:
-          $ref: '#/definitions/Policy'
-      documents:
-        type: array
-        items:
-          $ref: '#/definitions/Document'
-      questions:
-        type: array
-        items:
-          $ref: '#/definitions/Question'
-    xml:
-      name: ClaimInfo
-      
-  claim_declaration_servive_response:
-    type: object
-    required:
-      - Claims
-    properties:
-      claim_declaration_response:
-          $ref: '#/definitions/claim_declaration_response'
-    xml:
-      name: claim_declaration_servive_response
-      
-  claim_declaration_response:
-    title: claim_declaration_response
-    type: object
-    required:
-      - Claims
-    properties:
-      Claims:
-        type: array
-        items:
-          $ref: '#/definitions/Claim'
-    xml:
-      name: claim_declaration_response
+claim_declaration:
+  type: object
+  required:
+    - UserPersonalInformation
+    - photoUrls
+  properties:
+    claim_declaration_request:
+      $ref: '#/claim_declaration_request'
+  xml:
+    name: claim_declaration_request
+claim_declaration_request:
+  type: object
+  required:
+    - UserPersonalInformation
+    - UserAddress
+  properties:
+    UserPersonalInformation:
+      $ref: '#/UserPersonalInformation'
+    UserAddress:
+      $ref: '#/UserAddress'
+    UserContactType:
+      $ref: '#/UserContactType'
+    InsuredInfo:
+      $ref: '#/InsuredInfo'
+    ClaimInfo:
+      $ref: '#/ClaimInfo'
+  xml:
+    name: claim_declaration_request
+UserPersonalInformation:
+  type: object
+  required:
+    - userFullName
+    - userFirstName
+    - userMiddleName
+    - userLastName
+    - userSurname
+    - userBirthDate
+    - userNationalityCountry
+    - userNationalityOrigin
+    - userGenderId
+    - userDocumentType
+    - userDocumentNumber
+  properties:
+    userFullName:
+      type: string
+    userFirstName:
+      type: string
+    userMiddleName:
+      type: string
+    userLastName:
+      type: string
+    userSurname:
+      type: string
+    userBirthDate:
+      type: string
+    userNationalityCountry:
+      type: string
+    userNationalityOrigin:
+      type: string
+    userGenderId:
+      type: string
+    userDocumentType:
+      type: string
+    userDocumentNumber:
+      type: string
+  xml:
+    name: UserPersonalInformation
+UserAddress:
+  type: object
+  required:
+    - userAddressType
+    - userAddressName
+    - userAddressNumber
+    - userAddressCity
+    - userAddressDistrict
+    - userAddressState
+    - userAddressCountry
+    - userAddressResidence
+    - userAddressReference
+    - userAdressPostalCode
+  properties:
+    userAddressType:
+      type: string
+    userAddressName:
+      type: string
+    userAddressNumber:
+      type: string
+    userAddressCity:
+      type: string
+    userAddressDistrict:
+      type: string
+    userAddressState:
+      type: string
+    userAddressCountry:
+      type: string
+    userAddressResidence:
+      type: string
+    userAddressReference:
+      type: string
+    userAdressPostalCode:
+      type: string
+  xml:
+    name: UserAddress
+UserContactType:
+  type: object
+  required:
+    - contactType
+    - emailType
+    - email
+    - phoneType
+    - countryCode
+    - areaCode
+    - phoneNumber
+  properties:
+    contactType:
+      type: string
+    emailType:
+      type: string
+    email:
+      type: string
+    phoneType:
+      type: string
+    countryCode:
+      type: integer
+      format: int64
+    areaCode:
+      type: integer
+      format: int64
+    phoneNumber:
+      type: string
+  xml:
+    name: UserContactType
+InsuredInfo:
+  type: object
+  required:
+    - fullName
+    - firstName
+    - middleName
+    - lastName
+    - surname
+    - documentType
+    - documentNumber
+  properties:
+    fullName:
+      type: string
+    firstName:
+      type: string
+    middleName:
+      type: string
+    lastName:
+      type: string
+    surname:
+      type: string
+    documentType:
+      type: string
+    documentNumber:
+      type: string
+  xml:
+    name: InsuredInfo
+claimsOccurrenceDate:
+  type: object
+  required:
+    - claimOccurrenceDate
+    - currentDate
+    - claimRole
+  properties:
+    claimOccurrenceDate:
+      type: string
+    currentDate:
+      type: string
+    claimRole:
+      type: string
+  xml:
+    name: claimsOccurrenceDate
+Policy:
+  type: object
+  required:
+    - policyId
+    - policyNumber
+    - startDateValidity
+    - operationNumber
+    - productCode
+    - planCode
+    - coverageCode
+  properties:
+    policyId:
+      type: string
+    policyNumber:
+      type: string
+    startDateValidity:
+      type: string
+    operationNumber:
+      type: string
+    productCode:
+      type: string
+    planCode:
+      type: string
+    coverageCode:
+      type: string
+  xml:
+    name: Policy
+Coverage:
+  type: object
+  required:
+    - coverageId
+  properties:
+    coverageId:
+      type: string
+  xml:
+    name: Coverage
+Document:
+  type: object
+  required:
+    - coverageDocId
+    - coverageDocType
+    - coverageDocDesc
+    - coverageDocIsNew
+    - coverageDocIsReusable
+    - coverageList
+  properties:
+    coverageDocId:
+      type: string
+    coverageDocType:
+      type: string
+    coverageDocDesc:
+      type: string
+    coverageDocIsNew:
+      type: string
+    coverageDocIsReusable:
+      type: string
+    coverages:
+      type: array
+      items:
+        $ref: '#/Coverage'
+  xml:
+    name: Document
+Question:
+  type: object
+  required:
+    - coverageQuestionId
+    - coverageAnswerId
+    - coverageAnswerText
+    - coverages
+  properties:
+    coverageQuestionId:
+      type: string
+    coverageAnswerId:
+      type: string
+    coverageAnswerText:
+      type: string
+    coverages:
+      type: array
+      items:
+        $ref: '#/Coverage'
+  xml:
+    name: Question
+Claim:
+  type: object
+  required:
+    - claimId
+    - claimStatus
+  properties:
+    claimId:
+      type: string
+    claimStatus:
+      type: string
+  xml:
+    name: Claim
+ClaimInfo:
+  type: object
+  required:
+    - fullName
+    - firstName
+    - middleName
+    - lastName
+    - surname
+    - documentType
+    - documentNumber
+  properties:
+    claimOccurrenceDate:
+      type: string
+    claimDeclarationDate:
+      type: string
+    claimAlert:
+      type: string
+    answerDays:
+      type: string
+    claimRole:
+      type: string
+    coverageId:
+      type: string
+    claimType:
+      type: string
+    typeCause:
+      type: string
+    partnerId:
+      type: string
+    claimsOccurrenceDates:
+      type: array
+      items:
+        $ref: '#/claimsOccurrenceDate'
+    policies:
+      type: array
+      items:
+        $ref: '#/Policy'
+    documents:
+      type: array
+      items:
+        $ref: '#/Document'
+    questions:
+      type: array
+      items:
+        $ref: '#/Question'
+  xml:
+    name: ClaimInfo
+claim_declaration_servive_response:
+  type: object
+  required:
+    - Claims
+  properties:
+    claim_declaration_response:
+      $ref: '#/claim_declaration_response'
+  xml:
+    name: claim_declaration_servive_response
+claim_declaration_response:
+  title: claim_declaration_response
+  type: object
+  required:
+    - Claims
+  properties:
+    Claims:
+      type: array
+      items:
+        $ref: '#/Claim'
+  xml:
+    name: claim_declaration_response
