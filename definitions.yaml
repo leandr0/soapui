@@ -306,7 +306,8 @@ Product:
     - productType
   properties:
       productId:
-        type: int64
+        type: integer
+        format: int64
       productType:
         type: string
       productName:
@@ -324,7 +325,8 @@ Partner:
     - partnerDesc
   properties:
       partnerId:
-        type: int64
+        type: integer
+        format: int64
       partnerDesc:
         type: string
   xml:
