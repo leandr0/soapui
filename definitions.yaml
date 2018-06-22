@@ -1,31 +1,3 @@
-claim_declaration:
-  type: object
-  required:
-    - UserPersonalInformation
-    - photoUrls
-  properties:
-    claim_declaration_request:
-      $ref: '#/claim_declaration_request'
-  xml:
-    name: claim_declaration_request
-claim_declaration_request:
-  type: object
-  required:
-    - UserPersonalInformation
-    - UserAddress
-  properties:
-    UserPersonalInformation:
-      $ref: '#/UserPersonalInformation'
-    UserAddress:
-      $ref: '#/UserAddress'
-    UserContactType:
-      $ref: '#/UserContactType'
-    InsuredInfo:
-      $ref: '#/InsuredInfo'
-    ClaimInfo:
-      $ref: '#/ClaimInfo'
-  xml:
-    name: claim_declaration_request
 UserPersonalInformation:
   type: object
   required:
@@ -313,24 +285,3 @@ ClaimInfo:
         $ref: '#/Question'
   xml:
     name: ClaimInfo
-claim_declaration_servive_response:
-  type: object
-  required:
-    - Claims
-  properties:
-    claim_declaration_response:
-      $ref: '#/claim_declaration_response'
-  xml:
-    name: claim_declaration_servive_response
-claim_declaration_response:
-  title: claim_declaration_response
-  type: object
-  required:
-    - Claims
-  properties:
-    Claims:
-      type: array
-      items:
-        $ref: '#/Claim'
-  xml:
-    name: claim_declaration_response
