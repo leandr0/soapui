@@ -183,7 +183,8 @@ Coverage:
     - coverageId
   properties:
     coverageId:
-      type: int64
+      type: integer
+      format: int64
     coverageImg:
       type: string
     coverageComercialName:
@@ -191,7 +192,8 @@ Coverage:
     coverageDesc:
       type: string
     coverageStatus:
-      type: int32
+      type: integer
+      format: int32
   xml:
     name: Coverage
 Document:
