@@ -169,6 +169,12 @@ Policy:
       type: string
     coverageCode:
       type: string
+    endPeriod:
+      type: string
+    message:
+      type: string
+    status:
+      type: string
   xml:
     name: Policy
 Coverage:
@@ -177,7 +183,15 @@ Coverage:
     - coverageId
   properties:
     coverageId:
+      type: int64
+    coverageImg:
       type: string
+    coverageComercialName:
+      type: string
+    coverageDesc:
+      type: string
+    coverageStatus:
+      type: int32
   xml:
     name: Coverage
 Document:
@@ -285,3 +299,33 @@ ClaimInfo:
         $ref: '#/Question'
   xml:
     name: ClaimInfo
+Product:
+  type: object
+  required:
+    - productId
+    - productType
+  properties:
+      productId:
+        type: int64
+      productType:
+        type: string
+      productName:
+        type: string
+      productComercialName:
+        type: string
+      productMaskNumber:
+        type: string
+  xml:
+    name: Product
+Partner:
+  type: object
+  required:
+    - partnerId
+    - partnerDesc
+  properties:
+      partnerId:
+        type: int64
+      partnerDesc:
+        type: string
+  xml:
+    name: Partner   
